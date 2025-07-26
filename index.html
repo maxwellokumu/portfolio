@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Omuyanza - Mechatronic Engineer & JKUSA Academic Affairs Secretary</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Import Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        /* Base styles for dark mode and font */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Custom animations */
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in-up 0.6s forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-50 { animation-delay: 0.05s; } /* For skill cards */
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark mode specific styles */
+        .dark .bg-gray-900 { background-color: #1a202c; }
+        .dark .text-gray-100 { color: #f7fafc; }
+        .dark .bg-gray-800 { background-color: #2d3748; }
+        .dark .text-gray-300 { color: #cbd5e0; }
+        .dark .hover\\:bg-gray-700:hover { background-color: #4a5568; }
+        .dark .bg-gray-700 { background-color: #4a5568; }
+        .dark .text-gray-400 { color: #a0aec0; }
+        .dark .hover\\:bg-gray-600:hover { background-color: #718096; }
+        .dark .border-gray-600 { border-color: #4a5568; }
+        .dark .hover\\:shadow-teal-700\\/50:hover { box-shadow: 0 10px 15px -3px rgba(56, 178, 172, 0.5), 0 4px 6px -2px rgba(56, 178, 172, 0.25); }
+        .dark .hover\\:shadow-teal-600\\/50:hover { box-shadow: 0 10px 15px -3px rgba(65, 182, 180, 0.5), 0 4px 6px -2px rgba(65, 182, 180, 0.25); }
+        .dark .border-teal-600 { border-color: #38b2ac; }
+        .dark .bg-teal-800 { background-color: #234e52; }
+        .dark .text-teal-200 { color: #81e6d9; }
+        .dark .text-teal-400 { color: #4fd1c5; }
+        .dark .hover\\:text-teal-400:hover { color: #4fd1c5; }
+
+        /* Light mode specific styles (default Tailwind classes mostly, but explicit for clarity) */
+        .light .bg-gray-100 { background-color: #f7fafc; }
+        .light .text-gray-900 { color: #1a202c; }
+        .light .bg-white { background-color: #ffffff; }
+        .light .text-gray-700 { color: #4a5568; }
+        .light .hover\\:bg-gray-200:hover { background-color: #edf2f7; }
+        .light .bg-gray-300 { background-color: #e2e8f0; }
+        .light .hover\\:bg-gray-400:hover { background-color: #cbd5e0; }
+        .light .border-gray-300 { border-color: #e2e8f0; }
+        .light .hover\\:shadow-teal-200\\/50:hover { box-shadow: 0 10px 15px -3px rgba(129, 230, 217, 0.5), 0 4px 6px -2px rgba(129, 230, 217, 0.25); }
+        .light .hover\\:shadow-teal-100\\/50:hover { box-shadow: 0 10px 15px -3px rgba(204, 250, 241, 0.5), 0 4px 6px -2px rgba(204, 250, 241, 0.25); }
+        .light .border-teal-300 { border-color: #81e6d9; }
+        .light .bg-teal-100 { background-color: #e6fffa; }
+        .light .text-teal-800 { color: #234e52; }
+        .light .text-teal-500 { color: #38b2ac; }
+        .light .hover\\:text-teal-600:hover { color: #319795; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 shadow-lg bg-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-teal-500">Victor Omuyanza</div>
+            <div id="desktop-nav-links" class="hidden md:flex space-x-6">
+                <!-- Nav items will be injected here by JS -->
+            </div>
+            <button id="darkModeToggle" class="p-2 rounded-full bg-gray-700 text-gray-300 hover:bg-gray-600 transition-colors duration-200" aria-label="Toggle dark mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-nav-overlay" class="fixed bottom-0 left-0 w-full md:hidden z-50">
+        <div class="flex justify-around p-3 shadow-lg bg-gray-800 rounded-t-lg">
+            <!-- Mobile nav items will be injected here by JS -->
+        </div>
+    </div>
+
+    <main class="pt-20 pb-16 md:pb-0">
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('http://localhost/profiles/vic.jpeg'); opacity: 0.3;"></div>
+            <div class="relative z-10 text-center px-4">
+                <img
+                    src="https://placehold.co/150x150/67e8f9/0f172a?text=VO"
+                    alt="Victor Omuyanza"
+                    class="rounded-full mx-auto mb-6 border-4 border-teal-500 shadow-xl animate-fade-in-up"
+                />
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up delay-100">
+                    Victor Omuyanza
+                </h1>
+                <p class="text-2xl md:text-3xl font-light mb-8 text-teal-400 animate-fade-in-up delay-200">
+                    Mechatronic Engineer in Training | JKUSA Academic Affairs Secretary
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up delay-300">
+                    <button id="exploreEngineering" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                        Explore Engineering Projects
+                    </button>
+                    <button id="discoverLeadership" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                        Discover Leadership Impact
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 bg-gray-800">
+            <div class="container mx-auto text-center max-w-4xl">
+                <h2 class="text-4xl font-bold mb-8 text-teal-500 animate-fade-in-up">About Victor</h2>
+                <p class="text-lg leading-relaxed mb-6 animate-fade-in-up delay-100">
+                    I am Victor Omuyanza, a passionate and dedicated Mechatronic Engineering student at Jomo Kenyatta University of Agriculture and Technology (JKUAT). My academic journey is driven by a profound interest in the synergy of mechanical, electronic, and software engineering disciplines, aiming to create innovative solutions for real-world challenges.
+                </p>
+                <p class="text-lg leading-relaxed animate-fade-in-up delay-200">
+                    Beyond the lab, I serve as the Academic Affairs Secretary for the JKUAT Students' Association (JKUSA). In this leadership role, I am committed to advocating for student academic welfare, fostering a conducive learning environment, and bridging the gap between students and the university administration. I believe in leveraging both technical expertise and strong leadership to drive positive change and empower my peers.
+                </p>
+            </div>
+        </section>
+
+        <!-- Engineering Projects Section -->
+        <section id="engineering" class="py-20 px-4 bg-gray-900">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-teal-500 animate-fade-in-up">Engineering Projects</h2>
+                <div id="engineering-projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projects will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership & Impact Section -->
+        <section id="leadership" class="py-20 px-4 bg-gray-800">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-teal-500 animate-fade-in-up">Leadership & Impact (JKUSA)</h2>
+                <div id="leadership-achievements-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Achievements will be injected here by JS -->
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-lg leading-relaxed animate-fade-in-up delay-400">
+                        My role as Academic Affairs Secretary is driven by a commitment to student empowerment and fostering a vibrant academic community. I strive to be a voice for students, ensuring their concerns are heard and addressed effectively.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-4 bg-gray-900">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-teal-500 animate-fade-in-up">Skills</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-6 text-teal-400 animate-fade-in-up delay-100">Technical Skills</h3>
+                        <div id="technical-skills-grid" class="flex flex-wrap gap-3">
+                            <!-- Technical skills will be injected here by JS -->
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-6 text-teal-400 animate-fade-in-up delay-200">Soft Skills</h3>
+                        <div id="soft-skills-grid" class="flex flex-wrap gap-3">
+                            <!-- Soft skills will be injected here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 bg-gray-800">
+            <div class="container mx-auto text-center max-w-2xl">
+                <h2 class="text-4xl font-bold mb-8 text-teal-500 animate-fade-in-up">Get in Touch</h2>
+                <p class="text-lg leading-relaxed mb-10 animate-fade-in-up delay-100">
+                    I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
+                </p>
+                <form class="space-y-6 text-left animate-fade-in-up delay-200">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2 text-gray-300">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="w-full p-3 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-gray-700 text-gray-100 border border-gray-600"
+                            placeholder="Your Name"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="w-full p-3 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-gray-700 text-gray-100 border border-gray-600"
+                            placeholder="your.email@example.com"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            class="w-full p-3 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-gray-700 text-gray-100 border border-gray-600"
+                            placeholder="Your message..."
+                            required
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
+                    >
+                        Send Message
+                    </button>
+                </form>
+                <div class="mt-10 flex justify-center space-x-6 animate-fade-in-up delay-300">
+                    <a
+                        href="https://www.linkedin.com/in/victor-omuyanza"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-teal-400 transition-colors duration-200"
+                        aria-label="LinkedIn Profile"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a
+                        href="https://github.com/victor-omuyanza"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-300 hover:text-teal-400 transition-colors duration-200"
+                        aria-label="GitHub Profile"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.46 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.55 1.02-.9 2.21-.72 3.46 0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    </a>
+                    <a
+                        href="mailto:victor.omuyanza@example.com"
+                        class="text-gray-300 hover:text-teal-400 transition-colors duration-200"
+                        aria-label="Email Victor"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 text-center text-sm bg-gray-900 text-gray-400">
+        <div class="container mx-auto">
+            &copy; <span id="current-year"></span> Victor Omuyanza. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Data for the portfolio
+        const navItems = [
+            { id: 'home', icon: 'Home', label: 'Home' },
+            { id: 'about', icon: 'User', label: 'About' },
+            { id: 'engineering', icon: 'Settings', label: 'Engineering' },
+            { id: 'leadership', icon: 'Users', label: 'Leadership' },
+            { id: 'skills', icon: 'Code', label: 'Skills' },
+            { id: 'contact', icon: 'Mail', label: 'Contact' },
+        ];
+
+        const engineeringProjects = [
+            {
+                title: "Automated Waste Sorting System",
+                description: "Designed and implemented an AI-powered system for automated waste classification using computer vision and robotic manipulation.",
+                technologies: ["Python", "OpenCV", "Raspberry Pi", "Stepper Motors"],
+                image: "https://placehold.co/400x250/1a202c/e2e8f0?text=Waste+Sorter"
+            },
+            {
+                title: "Smart Home Automation Hub",
+                description: "Developed a central control unit for smart home devices, integrating various sensors and actuators for energy efficiency and convenience.",
+                technologies: ["Arduino", "ESP32", "IoT Protocols", "C++"],
+                image: "https://placehold.co/400x250/1a202c/e2e8f0?text=Smart+Home"
+            },
+            {
+                title: "Robotic Arm Control System",
+                description: "Programmed a 6-axis robotic arm for pick-and-place operations, focusing on precision, speed, and safety protocols.",
+                technologies: ["MATLAB", "Simulink", "Inverse Kinematics", "PLC"],
+                image: "https://placehold.co/400x250/1a202c/e2e8f0?text=Robotic+Arm"
+            },
+            {
+                title: "Predictive Maintenance System",
+                description: "Created a data-driven system to predict equipment failures in industrial machinery using sensor data and machine learning.",
+                technologies: ["Python", "Pandas", "Scikit-learn", "Azure IoT"],
+                image: "https://placehold.co/400x250/1a202c/e2e8f0?text=Predictive+Maint."
+            }
+        ];
+
+        const leadershipAchievements = [
+            {
+                title: "Streamlined Academic Grievance System",
+                description: "Implemented a digital submission and tracking platform for student academic grievances, reducing resolution time by 30% and improving transparency.",
+                icon: 'BookOpen'
+            },
+            {
+                title: "Enhanced Student-Faculty Engagement",
+                description: "Organized and moderated 5+ successful student-faculty forums and workshops, fostering constructive dialogue and improving communication channels.",
+                icon: 'Users'
+            },
+            {
+                title: "Advocacy for Policy Review",
+                description: "Successfully lobbied for the review of outdated academic policies, leading to the implementation of more student-friendly regulations regarding course registration and examinations.",
+                icon: 'Award'
+            },
+            {
+                title: "Mentorship Program for Freshmen",
+                description: "Initiated and managed a peer-mentorship program connecting senior students with freshmen, significantly improving academic performance and integration for new students.",
+                icon: 'Lightbulb'
+            }
+        ];
+
+        const technicalSkills = [
+            "Mechatronics Systems Design", "Robotics & Automation", "Control Systems", "CAD/CAM (SolidWorks, AutoCAD)",
+            "Programming (Python, C++, MATLAB, Arduino)", "PLC Programming", "Circuit Design & Analysis",
+            "Embedded Systems", "IoT Development", "Data Analysis", "Machine Learning Basics"
+        ];
+
+        const softSkills = [
+            "Leadership & Team Management", "Problem-Solving", "Strategic Planning", "Public Speaking",
+            "Policy Development", "Communication", "Conflict Resolution", "Project Management", "Advocacy"
+        ];
+
+        // DOM Elements
+        const htmlElement = document.documentElement;
+        const navbar = document.getElementById('navbar');
+        const desktopNavLinks = document.getElementById('desktop-nav-links');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay').querySelector('div');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const heroEngineeringBtn = document.getElementById('exploreEngineering');
+        const heroLeadershipBtn = document.getElementById('discoverLeadership');
+        const engineeringProjectsGrid = document.getElementById('engineering-projects-grid');
+        const leadershipAchievementsGrid = document.getElementById('leadership-achievements-grid');
+        const technicalSkillsGrid = document.getElementById('technical-skills-grid');
+        const softSkillsGrid = document.getElementById('soft-skills-grid');
+        const currentYearSpan = document.getElementById('current-year');
+
+        let darkMode = true; // Initial state
+
+        // --- Utility Functions ---
+
+        // Function to create Lucide icons (requires lucide.js loaded)
+        function createLucideIcon(iconName, size, className = '') {
+            const icon = lucide.createIcons({
+                icons: { [iconName]: lucide.icons[iconName] },
+                attrs: { width: size, height: size, class: className }
+            });
+            return icon[iconName];
+        }
+
+        // Function to scroll to a section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Function to update active navigation link
+        function updateActiveNavLink() {
+            const sections = ['home', 'about', 'engineering', 'leadership', 'skills', 'contact'];
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            let activeSectionId = 'home';
+            for (const sectionId of sections) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+                        activeSectionId = sectionId;
+                        break;
+                    }
+                }
+            }
+
+            // Update desktop nav
+            desktopNavLinks.querySelectorAll('button').forEach(button => {
+                if (button.dataset.sectionId === activeSectionId) {
+                    button.classList.add('bg-teal-600', 'text-white');
+                    button.classList.remove('text-gray-300', 'hover:bg-gray-700', 'text-gray-700', 'hover:bg-gray-200');
+                } else {
+                    button.classList.remove('bg-teal-600', 'text-white');
+                    if (darkMode) {
+                        button.classList.add('text-gray-300', 'hover:bg-gray-700');
+                    } else {
+                        button.classList.add('text-gray-700', 'hover:bg-gray-200');
+                    }
+                }
+            });
+
+            // Update mobile nav
+            mobileNavOverlay.querySelectorAll('button').forEach(button => {
+                if (button.dataset.sectionId === activeSectionId) {
+                    button.classList.add('text-teal-500');
+                    button.classList.remove('text-gray-400', 'text-gray-600');
+                } else {
+                    button.classList.remove('text-teal-500');
+                    if (darkMode) {
+                        button.classList.add('text-gray-400');
+                    } else {
+                        button.classList.add('text-gray-600');
+                    }
+                }
+            });
+        }
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            if (darkMode) {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                document.body.classList.remove('bg-gray-100', 'text-gray-900');
+                document.body.classList.add('bg-gray-900', 'text-gray-100');
+                navbar.classList.remove('bg-white');
+                navbar.classList.add('bg-gray-800');
+                darkModeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>';
+                darkModeToggle.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                darkModeToggle.classList.add('bg-gray-700', 'text-gray-300', 'hover:bg-gray-600');
+                heroLeadershipBtn.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+                heroLeadershipBtn.classList.add('bg-gray-700', 'hover:bg-gray-600');
+            } else {
+                htmlElement.classList.add('light');
+                htmlElement.classList.remove('dark');
+                document.body.classList.remove('bg-gray-900', 'text-gray-100');
+                document.body.classList.add('bg-gray-100', 'text-gray-900');
+                navbar.classList.remove('bg-gray-800');
+                navbar.classList.add('bg-white');
+                darkModeToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-off"><path d="m12.41 6.71-.41-1.71L10 2l-7 12h7l-1 8 4-5.33"/><path d="M18.42 10.61a2 2 0 0 1 .57 1.39c0 .5-.16 1-.45 1.39l-2.93 3.78"/><path d="M21.73 15.42.33 1.02"/><path d="M14.34 14.34 22 22"/></svg>';
+                darkModeToggle.classList.remove('bg-gray-700', 'text-gray-300', 'hover:bg-gray-600');
+                darkModeToggle.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                heroLeadershipBtn.classList.remove('bg-gray-700', 'hover:bg-gray-600');
+                heroLeadershipBtn.classList.add('bg-gray-300', 'hover:bg-gray-400');
+            }
+            updateActiveNavLink(); // Re-apply active state classes with new theme
+        }
+
+        // --- Dynamic Content Generation ---
+
+        function generateNavLinks() {
+            navItems.forEach(item => {
+                // Desktop Nav
+                const desktopButton = document.createElement('button');
+                desktopButton.className = `flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 transition-colors duration-200`;
+                desktopButton.dataset.sectionId = item.id;
+                desktopButton.innerHTML = `<span data-lucide="${item.icon}" class="lucide-icon" style="width: 18px; height: 18px;"></span><span>${item.label}</span>`;
+                desktopButton.onclick = () => scrollToSection(item.id);
+                desktopNavLinks.appendChild(desktopButton);
+
+                // Mobile Nav
+                const mobileButton = document.createElement('button');
+                mobileButton.className = `flex flex-col items-center text-xs font-medium px-2 py-1 rounded-md text-gray-400 transition-colors duration-200`;
+                mobileButton.dataset.sectionId = item.id;
+                mobileButton.innerHTML = `<span data-lucide="${item.icon}" class="lucide-icon" style="width: 20px; height: 20px;"></span><span>${item.label}</span>`;
+                mobileButton.onclick = () => scrollToSection(item.id);
+                mobileNavOverlay.appendChild(mobileButton);
+            });
+            lucide.createIcons(); // Initialize Lucide icons after injecting HTML
+        }
+
+        function generateEngineeringProjects() {
+            engineeringProjects.forEach((project, index) => {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = `rounded-xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 animate-fade-in-up delay-${index * 100} bg-gray-800 hover:shadow-teal-700/50`;
+                projectDiv.innerHTML = `
+                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-lg mb-4" />
+                    <h3 class="text-2xl font-semibold mb-2 text-teal-400">${project.title}</h3>
+                    <p class="text-gray-300 mb-4">${project.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${project.technologies.map(tech => `<span class="text-xs font-medium px-3 py-1 rounded-full bg-teal-800 text-teal-200">${tech}</span>`).join('')}
+                    </div>
+                `;
+                engineeringProjectsGrid.appendChild(projectDiv);
+            });
+        }
+
+        function generateLeadershipAchievements() {
+            leadershipAchievements.forEach((achievement, index) => {
+                const achievementDiv = document.createElement('div');
+                achievementDiv.className = `flex items-start rounded-xl shadow-lg p-6 transform hover:translate-y-[-5px] transition-all duration-300 animate-fade-in-up delay-${index * 100} bg-gray-700 hover:shadow-teal-600/50`;
+                achievementDiv.innerHTML = `
+                    <span data-lucide="${achievement.icon}" class="lucide-icon text-teal-500 mr-4 flex-shrink-0" style="width: 48px; height: 48px;"></span>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2 text-teal-400">${achievement.title}</h3>
+                        <p class="text-gray-300">${achievement.description}</p>
+                    </div>
+                `;
+                leadershipAchievementsGrid.appendChild(achievementDiv);
+            });
+            lucide.createIcons(); // Initialize Lucide icons after injecting HTML
+        }
+
+        function generateSkills(skillsArray, targetElementId, delayOffset = 0) {
+            const targetElement = document.getElementById(targetElementId);
+            skillsArray.forEach((skill, index) => {
+                const skillSpan = document.createElement('span');
+                skillSpan.className = `px-5 py-2 rounded-full text-lg font-medium shadow-md transform hover:scale-105 transition-all duration-200 animate-fade-in-up delay-${index * 50 + delayOffset} bg-gray-700 text-gray-200 border border-teal-600`;
+                skillSpan.textContent = skill;
+                targetElement.appendChild(skillSpan);
+            });
+        }
+
+        // --- Event Listeners and Initial Setup ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            currentYearSpan.textContent = new Date().getFullYear();
+
+            // Initial dark mode setup (apply classes to html element)
+            htmlElement.classList.add('dark');
+
+            // Generate dynamic content
+            generateNavLinks();
+            generateEngineeringProjects();
+            generateLeadershipAchievements();
+            generateSkills(technicalSkills, 'technical-skills-grid', 100);
+            generateSkills(softSkills, 'soft-skills-grid', 200);
+
+            // Set up event listeners
+            window.addEventListener('scroll', updateActiveNavLink);
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+            heroEngineeringBtn.addEventListener('click', () => scrollToSection('engineering'));
+            heroLeadershipBtn.addEventListener('click', () => scrollToSection('leadership'));
+
+            // Initial active nav link update
+            updateActiveNavLink();
+        });
+    </script>
+</body>
+</html>
